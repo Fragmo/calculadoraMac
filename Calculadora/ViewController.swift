@@ -64,7 +64,7 @@ class ViewController: UIViewController {
             elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero = true;
         }
         
-       print(digito);// manda a pantalla el texto
+       print(digito)// manda a pantalla el texto
         //print(digito);// printa por pantalla el string digito
         
     }
