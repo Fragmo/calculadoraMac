@@ -28,22 +28,38 @@ class ViewController: UIViewController {
     @IBAction func enterPulsado() {
         let numero : NSString = pantalla.text! as NSString
         operando2 = numero.doubleValue
-        
+        print(operando1)
+        print(operando2)
+        print(operacion)
         let resultado = realizaOperacion()
         pantalla.text = String(format: "%g", resultado)
     }
     
     @IBAction func operacionPulsada(_ sender: UIButton) {
-        
+       
+        var yaEstaPuesto : Bool = false   // TERMINAR CODIGO CON ESTA VARIABLE PARA EL HISTORIAL
+        //damos el valor al operando1
         let numero : NSString = pantalla.text! as NSString
+       
+        if(operacion == ""){
         operando1 = numero.doubleValue
-        
+        }
         //guardo la operacion pulsada
         operacion = sender.currentTitle!
+        
+        if(elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero){
         miniPantalla.text = pantalla.text
+        }
+        
+        if(yaEstaPuesto == false){
+            miniPantalla.text = miniPantalla.text! + operacion
+            yaEstaPuesto = true
+            print(yaEstaPuesto)
+        }
             //pongo un 0 en la plantalla para escribir el 2º operando
         pantalla.text = "0";
         elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero = false
+        
         
         
     }
@@ -51,6 +67,7 @@ class ViewController: UIViewController {
     @IBAction func NumeroPulsado(_ sender: UIButton) {
         // var: variable
         // let: constante
+        
         
         
        // var: variable : tipo  ej: String
@@ -64,7 +81,11 @@ class ViewController: UIViewController {
             elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero = true;
         }
         
-       print(digito)// manda a pantalla el texto
+
+        
+        
+        
+      // print(digito)// manda a pantalla el texto
         //print(digito);// printa por pantalla el string digito
         
     }
@@ -78,6 +99,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     func realizaOperacion() -> Double{  // la flecha significa que devuelve algo y el double es el dato que devuelve
         var resultado : Double = 0;
