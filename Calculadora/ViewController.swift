@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func operacionPulsada(_ sender: UIButton) {
        
-        var yaEstaPuesto : Bool = false   // TERMINAR CODIGO CON ESTA VARIABLE PARA EL HISTORIAL
+        var yaEstaPuesto : Bool = false   // TERMINAR CODIGO CON ESTA VARIABLE PARA EL HISTORIALL
         //damos el valor al operando1
         let numero : NSString = pantalla.text! as NSString
        
