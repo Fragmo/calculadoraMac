@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var operando1: Double = 0;
     var operando2: Double = 0
     var operacion: String = "";
-    
+    var yaEstaPuesto : Bool = false   // TERMINAR CODIGO CON ESTA VARIABLE PARA EL HISTORIALL
     
     @IBAction func enterPulsado() {
         let numero : NSString = pantalla.text! as NSString
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func operacionPulsada(_ sender: UIButton) {
        
-        var yaEstaPuesto : Bool = false   // TERMINAR CODIGO CON ESTA VARIABLE PARA EL HISTORIALL
+        
         //damos el valor al operando1
         let numero : NSString = pantalla.text! as NSString
        
@@ -47,15 +47,9 @@ class ViewController: UIViewController {
         //guardo la operacion pulsada
         operacion = sender.currentTitle!
         
-        if(elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero){
-        miniPantalla.text = pantalla.text
-        }
+        historial()
         
-        if(yaEstaPuesto == false){
-            miniPantalla.text = miniPantalla.text! + operacion
-            yaEstaPuesto = true
-            print(yaEstaPuesto)
-        }
+        
             //pongo un 0 en la plantalla para escribir el 2º operando
         pantalla.text = "0";
         elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero = false
@@ -100,7 +94,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func historial (){
+        var stringMiniPantalla = ""
+        stringMiniPantalla = miniPantalla.text!
+        if(elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero){
+            miniPantalla.text = pantalla.text
+        }
+        
+        if(yaEstaPuesto == false){
+            miniPantalla.text = miniPantalla.text! + operacion
+            yaEstaPuesto = true
+        }
+        // ESTO ESTA MAAAAL
+        if(miniPantalla.text?.contains("+" || "-" ||"*"||"/")){
+            miniPantalla.text = miniPantalla.t
+        }
     
     func realizaOperacion() -> Double{  // la flecha significa que devuelve algo y el double es el dato que devuelve
         var resultado : Double = 0;
